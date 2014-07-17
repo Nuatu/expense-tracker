@@ -1,0 +1,5 @@
+array.forEach(function(x){
+    if(currentH2 === x.name ){
+      alert("WE IN THIS BITCH");
+    }
+  });

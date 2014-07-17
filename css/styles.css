@@ -1,0 +1,12 @@
+button {
+  margin-top: 10px;
+}
+
+div#categories p {
+  cursor: pointer;
+  color: #3786B2;
+}
+
+div#categories p:hover {
+  color:#6B357F;
+}
