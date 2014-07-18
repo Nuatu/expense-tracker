@@ -45,6 +45,8 @@ $("form#add-purchase").submit(function(event){
   event.preventDefault();
   if(currentCategory === ""){
     alert("You have not entered a Category");
+    $("input#input-description").val("");
+    $("input#input-amount").val("");
 
   }else{
 
