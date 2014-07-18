@@ -7,7 +7,7 @@ amount: 0
 
 
 $(document).ready(function() {
-var currentCategory;
+var currentCategory="";
 
 $("#add-btn").click(function(event) {
   event.preventDefault();
@@ -19,6 +19,9 @@ $("#add-btn").click(function(event) {
   $("div#categories").append("<p>" + newName + "</p>");
   $("input#new-category").val("");
   $("#purchases-table .empty").empty();
+  $("#purchases h2").text(newName);
+  $("#add-name").text(newName);
+  currentCategory = newCategory;
 
 
   $("#categories p").last().click(function(){
@@ -40,6 +43,10 @@ $("#add-btn").click(function(event) {
 
 $("form#add-purchase").submit(function(event){
   event.preventDefault();
+  if(currentCategory === ""){
+    alert("You have not entered a Category");
+
+  }else{
 
   var newDescription = $("input#input-description").val();
   var newAmount = parseFloat($("input#input-amount").val());
@@ -53,6 +60,7 @@ $("form#add-purchase").submit(function(event){
 
   $("input#input-description").val("");
   $("input#input-amount").val("");
+};
 });
 
 });

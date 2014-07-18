@@ -3,3 +3,59 @@ array.forEach(function(x){
       alert("WE IN THIS BITCH");
     }
   });
+
+var Category = {
+};
+var Purchase = {
+description: "",
+amount: 0
+};
+
+var array = [];
+var currentH2;
+
+$(document).ready(function() {
+
+
+$("#add-btn").click(function(event) {
+  event.preventDefault();
+  var newName = $("input#new-category").val().toUpperCase();
+  var newCategory = Object.create(Category);
+  newCategory.name = newName;
+  newCategory.purchases = [];
+  array.push(newCategory);
+  $("div#categories").append("<p>" + newName + "</p>");
+  $("input#new-category").val("");
+
+  $("#categories p").last().click(function(){
+  $("#purchases h2").text(newName);
+  $("#add-purchase").text(newName);
+  currentH2 = newName;
+  });
+});
+
+
+$("#track").click(function(event){
+  event.preventDefault();
+
+  var newDescription = $("input#description").val().toUpperCase();
+  var newAmount = parseFloat($("input#amount").val());
+  var newPurchase = Object.create(Purchase);
+  newPurchase.description = newDescription;
+  newPurchase.amount = newAmount;
+
+
+
+array.forEach(function(x){
+    if(currentH2 === x.name ){
+      x.purchases.pop(newPurchase);
+      console.log(x.purchases);
+    }
+  });
+
+
+  // console.log(array[0]);
+
+});
+
+});
